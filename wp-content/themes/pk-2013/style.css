@@ -1,0 +1,34 @@
+/*
+Theme Name: PK 2013 Theme
+Theme URI: http://melissacabral.com/
+Description: Wordpress kooky shit
+Author: melissa cabral
+Author URI: http://melissacabral.com
+Version: 1.0
+License: GPLv2 
+License URI: license.txt
+*/
+@import url(http://fonts.googleapis.com/css?family=Dosis);
+html{
+	background-color:#302e38;
+	color:#bebec0;
+	font-family: Dosis, Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-size: 100%;
+}
+h1, h2, h3, h4, h5{
+	font-weight: normal;
+}
+a{
+	color:white;
+	text-decoration: none;
+}
+body{
+	max-width: 75em;
+	margin: 0 auto;
+	width: 98%;
+}
+aside{
+	background-color: rgba(0,0,0,.6);
+	padding:1em;
+}
+
