@@ -19,8 +19,7 @@
 
 	<title><?php pk_header_titles(); ?></title>
 
-	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/styles/reset.css" />
-
+	
 	<?php 
 //Necessary in <head> for JS and plugins to work. 
 //I like it before style.css loads so the theme stylesheet is more specific than all others.
@@ -38,18 +37,9 @@
 
 <body <?php body_class(); ?>>
 
-	<div id="wrapper" class="clearfix"> 
-		<header role="banner">
-			<h1 class="site-name"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo('name') ?>" rel="home"> 
-				<?php bloginfo('name'); ?> 
-			</a>
-		</h1>
-			<h2 class="site-description"> <?php bloginfo('description'); ?> </h2>	
-				
-			<?php wp_nav_menu( array(
-				'theme_location' => 'main_menu',
-				'container' => 'nav',
-			) ); ?>	
+		<?php if(is_home()){
+			get_template_part( 'banner', 'home' );
+		}else{
+			get_template_part( 'banner', 'interior' );
 
-				
-		</header>	
+		} ?>

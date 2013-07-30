@@ -9,26 +9,316 @@ License: GPLv2
 License URI: license.txt
 */
 @import url(http://fonts.googleapis.com/css?family=Dosis);
-html{
-	background-color:#302e38;
-	color:#bebec0;
-	font-family: Dosis, Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-	font-size: 100%;
+/* apply a natural box layout model to all elements */
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+ }
+html,
+button,
+input,
+select,
+textarea {
+	color: #222;
 }
-h1, h2, h3, h4, h5{
-	font-weight: normal;
+
+body {
+	font-size: 1em;
+	line-height: 1.4;
 }
-a{
-	color:white;
-	text-decoration: none;
+::-moz-selection {
+	background: #b3d4fc;
+	text-shadow: none;
 }
-body{
-	max-width: 75em;
-	margin: 0 auto;
-	width: 98%;
+::selection {
+	background: #b3d4fc;
+	text-shadow: none;
 }
-aside{
-	background-color: rgba(0,0,0,.6);
-	padding:1em;
+hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #ccc;
+	margin: 1em 0;
+	padding: 0;
 }
+audio,
+canvas,
+img,
+video {
+	vertical-align: middle;
+}
+fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+textarea {
+	resize: vertical;
+}
+
+/*
+ * Image replacement
+ */
+
+ .ir {
+ 	background-color: transparent;
+ 	border: 0;
+ 	overflow: hidden;
+ 	/* IE 6/7 fallback */
+ 	*text-indent: -9999px;
+ }
+
+ .ir:before {
+ 	content: "";
+ 	display: block;
+ 	width: 0;
+ 	height: 150%;
+ }
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+ .hidden {
+ 	display: none !important;
+ 	visibility: hidden;
+ }
+
+ .visually-hidden {
+ 	border: 0;
+ 	clip: rect(0 0 0 0);
+ 	height: 1px;
+ 	margin: -1px;
+ 	overflow: hidden;
+ 	padding: 0;
+ 	position: absolute;
+ 	width: 1px;
+ }
+
+ .visually-hidden.focusable:active,
+ .visually-hidden.focusable:focus {
+ 	clip: auto;
+ 	height: auto;
+ 	margin: 0;
+ 	overflow: visible;
+ 	position: static;
+ 	width: auto;
+ }
+
+ .clearfix:before,
+ .clearfix:after {
+ 	content: " "; /* 1 */
+ 	display: table; /* 2 */
+ }
+
+ .clearfix:after {
+ 	clear: both;
+ }
+
+ .clearfix {
+ 	*zoom: 1;
+ }
+ /* == %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  PK Custom Styles */
+ html{
+ 	background-color:#302e38;
+ 	color:#bebec0;
+ 	font-family: Dosis, Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+ 	font-size: 100%;
+ 	line-height: 1.4em;
+ }
+ h1, h2, h3, h4, h5{
+ 	font-weight: normal;
+ }
+ a{
+ 	color:white;
+ 	text-decoration: none;
+ }
+ a:hover{
+ 	background-color:rgba(255,255,255,.1);
+ }
+
+ img{
+ 	max-width: 100%;
+ 	height: auto;
+ }
+ body{
+ 	max-width: 75em;
+ 	margin: 0 auto;
+ 	width: 100%;
+ }
+
+ aside{
+ 	clear: both;
+ 	background-color: rgba(0,0,0,.6);
+ 	padding:1em;
+ }
+ /* == header banner */
+ .home header[role=banner]{
+ 	min-height: 170px;
+ 	margin-bottom: 2em;
+ }
+ .home header[role=banner] .site-name{
+ 	background-color:rgba(24,17,59,.7);
+ 	background-image: url(img/paulkaiju-logo-small.png);
+ 	background-position: center 45px;
+ 	background-repeat: no-repeat;	
+ 	width:100%;
+ 	height: 200px;
+ 	margin:0;
+
+ }
+ .home header[role=banner] .site-name a{
+ 	display: block;
+ 	width:100%;
+ 	height: 200px;
+ }
+ .home header[role=banner] .site-name a:hover, 
+ .home header[role=banner] .site-name a:focus{
+ 	background-color: rgba(255,255,255,.2);
+ }
+ /* == navigation */
+ .main-navigation{
+ 	position: absolute;
+ 	top:0;
+ 	left:0;
+ 	background-color:black;
+ 	background-color: rgba(0,0,0,.8);
+ 	width: 100%;
+
+ }
+ .admin-bar .main-navigation{
+ 	top:27px;
+ }
+ .main-navigation .wrapper{
+ 	position: relative;
+ 	width:98%;
+ 	margin:0 auto;
+ 	max-width: 72em;
+ 	
+ }
+ .main-navigation ul{
+ 	
+ 	margin:0;
+ 	padding: 0;
+ }
+ .main-navigation li{
+ 	display: inline-block;
+ 	margin:0;
+ }
+ .main-navigation li a{
+ 	display: block;
+ 	padding: .5em 1em;
+ }
+ .main-navigation.raffle-open ul{
+ 	padding-left: 100px;
+ }
+ .main-navigation .raffle{
+ 	background-image: url(img/paulkaiju-raffle.png);
+ 	width: 93px;
+ 	height: 66px;
+ 	position: absolute;
+ 	top:0;
+ 	left:0px;
+ 	background-position: left bottom;
+ }
+
+ /* ==main content container */
+ main{
+ 	margin:2% 0 2% 2%;
+ }
+
+ /* == post articles */
+ .home main article h1 {
+ 	font-size:1.5em;
+ 	line-height: 1.2em;
+ 	height:2.4em;
+ 	margin-bottom: 0;
+ }
+ .home main article a{
+display: block;
+ padding-bottom: 1em;
+ }
+  a:hover img{
+ 	opacity: .7;
+ }
+ .home main article .thumb-link{
+ 	text-align: center;
+ }
+
+
+ /* ==thumbnail placeholder */
+ .placeholder{
+ 	background-color:rgba(0,0,0,.2);
+ 	background-image: url(img/paulkaiju-kewpie-watermark.png);
+ 	background-size: auto 55%;
+ 	max-width: 400px;
+ 	margin:0 auto;
+ 	background-position: center center;
+ }
+
+
+ /* wide screens ----------- */
+ @media only screen and (min-width : 460px) {
+ 	.home main article,
+ 	aside .widget{
+ 		width:48%;
+ 		margin: 0 2% 2% 0;
+ 		float:left;
+ 	}
+ 	.home header[role=banner] .site-name{	
+ 		width:49%;
+ 		height: 100%;
+ 	}
+
+
+ }
+ @media only screen and (min-width : 690px) {
+ 	.home main article,
+ 	aside .widget{
+ 		width:31.33%;
+ 		margin: 0 2% 2% 0;
+ 		float:left;
+ 	}
+ 	.home header[role=banner] .site-name{	
+ 		width:32.7%;	
+ 	}
+
+
+ }
+ @media only screen and (min-width : 920px) {
+ 	.home main article,
+ 	aside .widget{
+ 		width:23%;
+ 		margin: 0 2% 2% 0;
+ 		float:left;
+ 	}
+ 	.home header[role=banner] .site-name{	
+ 		width:24.6%;	
+ 	}
+
+
+ }
+ @media only screen and (min-width : 1200px) {
+ 	
+ 	.home header[role=banner] {
+ 		margin:0 2%;
+ 		height: 285px;
+ 	}
+ 	.home header[role=banner] .site-name{	
+ 		width:23.5%;
+ 		background-image: url(img/paulkaiju-logo.png);
+ 		background-position: center 45px;
+ 		
+ 		margin:0;
+
+ 	}
+ 	.home header[role=banner] .site-name a{
+height: 285px;
+ 	}
+ 	aside#sidebar{
+ 		margin:0 2%;
+ 	}
+
+
+ }
 

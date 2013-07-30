@@ -8,9 +8,10 @@
 add_action('wp_head', 'pk_header_style');
 function pk_header_style(){
 	?> <style type="text/css">
-    header[role=banner]{
+    .home header[role=banner]{
     background-image: url(<?php header_image(); ?>);
     background-size: cover;
+    background-position: center center;
         }</style> <?php
 }
 /** 
@@ -38,13 +39,12 @@ function pk_setup() {
 	add_theme_support( 'post-thumbnails' );
 	
 	//image sizes
-	add_image_size( 'pk-small-tile', 220, 160, true );
+	add_image_size( 'pk-small-tile', 400, 300, true );
 	add_image_size( 'pk-full', 1000, 280, false );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary-menu'=> 'Primary Menu',
-		'utility-menu' => 'Utility Menu',
 		'footer-menu' =>'Footer Menu',
 		));	
 
@@ -73,6 +73,16 @@ function pk_setup() {
 
 	 if ( is_singular() ) wp_enqueue_script( "comment-reply" );
 }
+/**
+ * remove wiodth and height from thumbs
+ */
+add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10 );
+add_filter( 'image_send_to_editor', 'remove_thumbnail_dimensions', 10 );
+
+function remove_thumbnail_dimensions( $html ) {
+    $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
+    return $html;
+}
 
 
 /**
@@ -84,17 +94,24 @@ function pk_setup() {
 add_action( 'wp_enqueue_scripts', 'pk_js_activation' ); 
 function pk_js_activation() {
     wp_enqueue_script( 'jquery' );
-	$modernizr_path = get_template_directory_uri() . '/js/vendor/modernizr-2.6.2.min.js';
+	$modernizr_path = get_template_directory_uri() . '/js/vendor/modernizr.js';
     wp_register_script( 'modernizrjs', $modernizr_path );
     wp_enqueue_script( 'modernizrjs' );
-
+    wp_enqueue_script(
+    	'dotdotdot-js',
+    	get_template_directory_uri() . '/js/vendor/jquery.dotdotdot.min.js',
+    	array( 'jquery' ),
+    	false,
+		true // loaded in the footer
+		);
     wp_enqueue_script(
 		'main-js',
 		get_template_directory_uri() . '/js/main.js',
-		array( 'jquery' ),
+		array( 'jquery', 'dotdotdot-js' ),
 		false,
 		true // loaded in the footer
 	);
+	
 	
 	wp_register_style( 'normalize', get_template_directory_uri() . '/css/normalize.css' );
 	wp_enqueue_style( 'normalize' );
@@ -125,4 +142,20 @@ function pk_header_titles() {
 	} else {
 		bloginfo('name'); 
 	}
+}
+/**
+ * short titles for the home page
+ */
+function pk_short_title($str, $length, $minword = 3){
+    $sub = '';
+    $len = 0;   
+    foreach (explode(' ', $str) as $word){
+        $part = (($sub != '') ? ' ' : '') . $word;
+        $sub .= $part;
+        $len += strlen($part);       
+        if (strlen($word) > $minword && strlen($sub) >= $length){
+            break;
+        }
+    }   
+    echo $sub . (($len < strlen($str)) ? '<span class="ellipses">&hellip;</span>' : '');
 }
