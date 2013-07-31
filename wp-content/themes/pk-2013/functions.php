@@ -40,7 +40,7 @@ function pk_setup() {
 	
 	//image sizes
 	add_image_size( 'pk-small-tile', 400, 300, true );
-	add_image_size( 'pk-full', 1000, 280, false );
+	add_image_size( 'pk-full', 1120, 290, true );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -159,3 +159,4 @@ function pk_short_title($str, $length, $minword = 3){
     }   
     echo $sub . (($len < strlen($str)) ? '<span class="ellipses">&hellip;</span>' : '');
 }
+

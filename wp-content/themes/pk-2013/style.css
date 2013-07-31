@@ -11,8 +11,8 @@ License URI: license.txt
 @import url(http://fonts.googleapis.com/css?family=Dosis);
 /* apply a natural box layout model to all elements */
 *, *:before, *:after {
-  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
- }
+	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
 html,
 button,
 input,
@@ -104,6 +104,14 @@ textarea {
  	position: static;
  	width: auto;
  }
+ .alignleft{
+ 	float:left;
+ 	margin-right:1em;
+ }
+ .alignright{
+ 	float:right;
+ 	margin-left:1em;
+ }
 
  .clearfix:before,
  .clearfix:after {
@@ -134,7 +142,7 @@ textarea {
  	text-decoration: none;
  }
  a:hover{
- 	background-color:rgba(255,255,255,.1);
+ 	background-color:rgba(255,255,255,.2);
  }
 
  img{
@@ -142,7 +150,7 @@ textarea {
  	height: auto;
  }
  body{
- 	max-width: 75em;
+ 	max-width: 70em;
  	margin: 0 auto;
  	width: 100%;
  }
@@ -159,7 +167,7 @@ textarea {
  }
  .home header[role=banner] .site-name{
  	background-color:rgba(24,17,59,.7);
- 	background-image: url(img/paulkaiju-logo-small.png);
+ 	background-image: url( img/paulkaiju-logo-small.png);
  	background-position: center 45px;
  	background-repeat: no-repeat;	
  	width:100%;
@@ -184,6 +192,7 @@ textarea {
  	background-color:black;
  	background-color: rgba(0,0,0,.8);
  	width: 100%;
+ 	
 
  }
  .admin-bar .main-navigation{
@@ -193,7 +202,7 @@ textarea {
  	position: relative;
  	width:98%;
  	margin:0 auto;
- 	max-width: 72em;
+ 	max-width: 68em;
  	
  }
  .main-navigation ul{
@@ -204,12 +213,13 @@ textarea {
  .main-navigation li{
  	display: inline-block;
  	margin:0;
+ 	font-size: 1.2em;
  }
  .main-navigation li a{
  	display: block;
  	padding: .5em 1em;
  }
- .main-navigation.raffle-open ul{
+ .home .raffle-open ul{
  	padding-left: 100px;
  }
  .main-navigation .raffle{
@@ -218,31 +228,99 @@ textarea {
  	height: 66px;
  	position: absolute;
  	top:0;
- 	left:0px;
+ 	right:0;
  	background-position: left bottom;
+ 	text-indent: -99999em;
+ }
+ .home .main-navigation .raffle{
+ 	top:0;
+ 	left:0px;
+ }
+ .main-navigation .raffle:hover{
+ 	height: 74px;
+ }
+ .main-navigation .raffle a{
+ 	display: block;
+ 	height: 100%;
+ 	background-color: transparent;
+ }
+
+ /*== main navigation on interior pages (logo) */
+ .main-navigation .site-name{
+ 	margin: 0;
+ 	font-size: 1em;
+ 	background-image: url(img/paulkaiju-logo-small.png);
+ 	background-repeat: no-repeat;
+ 	background-position: -2px -103px;
+ 	width:157px;
+ 	
+ }
+ .main-navigation .site-name a {
+ width:100%;
+
+ 	display: block;
+ 	text-indent: -9999em;
  }
 
  /* ==main content container */
- main{
+   main{
+ 	margin:4em 0 2% 2%;
+ }
+  .home main{
  	margin:2% 0 2% 2%;
  }
 
+
  /* == post articles */
+  main article h1{
+ 	color: #ceca6d;
+ 	font-size: 2.5em;
+ }
+ main article h1 a{
+ 	color:#ceca6d;
+ }
+ .home main  h1 a{
+ 	
+ }
  .home main article h1 {
  	font-size:1.5em;
  	line-height: 1.2em;
  	height:2.4em;
  	margin-bottom: 0;
+ 	color: #ccc;
+ 	overflow: hidden;
  }
+
  .home main article a{
-display: block;
- padding-bottom: 1em;
+ 	display: block;
+ 	padding-bottom: 1em;
  }
-  a:hover img{
+ a:hover img{
  	opacity: .7;
  }
  .home main article .thumb-link{
  	text-align: center;
+ }
+ .entry-content{
+ 	font-size:1.1875em; 
+ }
+ .postmeta{
+ 	clear: both;
+ 	background-color: rgba(0,0,0,.2);
+ 	padding:.25em .5em;
+ 	font-size:.9em;
+ 	;
+ }
+ /*== forms */
+ main form{
+ 	width:98%;
+ 	max-width:50em;
+ 	margin: 0 auto;
+ }
+ main form input, textarea{
+ 	width:100%;
+ 	font-size: 1.2em;
+ 	padding:.25em;
  }
 
 
@@ -253,6 +331,7 @@ display: block;
  	background-size: auto 55%;
  	max-width: 400px;
  	margin:0 auto;
+ 	min-height: 160px;
  	background-position: center center;
  }
 
@@ -269,6 +348,10 @@ display: block;
  		width:49%;
  		height: 100%;
  	}
+ 	/* js fallback, clear every odd child*/
+ 	.home main article:nth-child(odd){
+ 			clear:both;
+ 		}
 
 
  }
@@ -278,10 +361,24 @@ display: block;
  		width:31.33%;
  		margin: 0 2% 2% 0;
  		float:left;
+ 		clear:none !important; 
  	}
  	.home header[role=banner] .site-name{	
  		width:32.7%;	
  	}
+ 	.home main article .thumb-link{
+ 		text-align: left;
+ 	}
+ 	.home main article .thumb-link h1{
+ 		padding:0 .25em;
+ 	}
+ 	/*js fallback - clear every 4th article */
+ 		.home main article:nth-child(4),
+ 		.home main article:nth-child(7),
+ 		.home main article:nth-child(10){
+ 			clear:both !important;
+ 		}
+
 
 
  }
@@ -291,10 +388,22 @@ display: block;
  		width:23%;
  		margin: 0 2% 2% 0;
  		float:left;
+
  	}
  	.home header[role=banner] .site-name{	
  		width:24.6%;	
  	}
+ 	.home main article:nth-child(even),
+ 	.home main article:nth-child(odd){
+ 		clear:none !important;
+ 	}
+ 	/*js fallback - clear every 5th article */
+ 		.home main article:nth-child(5),
+ 		.home main article:nth-child(9),
+ 		.home main article:nth-child(13){
+ 			clear:both !important;
+ 		}
+
 
 
  }
@@ -313,7 +422,7 @@ display: block;
 
  	}
  	.home header[role=banner] .site-name a{
-height: 285px;
+ 		height: 285px;
  	}
  	aside#sidebar{
  		margin:0 2%;

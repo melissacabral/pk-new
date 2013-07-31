@@ -13,9 +13,9 @@
 					'theme_location' => 'primary-menu',
 					'container' => false,
 					'items_wrap' => '%3$s',
-					) ); ?>
-				</ul>	
-			</wrapper>
-		</nav>
+				) ); ?>
+			</ul>	
+		</div>
+	</nav>
 		
 	</header>	

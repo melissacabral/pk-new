@@ -8,27 +8,28 @@
 		the_post(); ?>
 	
         <article id="post-<?php the_ID() ?>" <?php post_class( 'clearfix' ); ?>>
-            <h2 class="entry-title"> <a href="<?php the_permalink(); ?>"> 
+             <?php the_post_thumbnail( 'pk-full', array( 'class' => 'thumb' ) ); ?> <h1 class="entry-title"> <a href="<?php the_permalink(); ?>"> 
 				<?php the_title(); ?> 
-			</a></h2>
-            <div class="postmeta"> 
-                <span class="author"> Posted by: <?php the_author(); ?> </span> 
-                <span class="date"> <?php the_date(); ?> </span> 
-                <span class="num-comments"> 
-			<?php comments_number('No comments yet', 'One comment', '% comments'); ?></span> 
-                <span class="categories"> 
-					<?php the_category(); ?>                
-                </span> 
-                <span class="tags">
-					<?php the_tags(); ?>
-				</span> 
-            </div><!-- end postmeta -->  
+			</a></h1>
+            
 
-            <?php the_post_thumbnail( 'thumbnail', array( 'class' => 'thumb' ) ); ?>                    
+                              
             <div class="entry-content">
                 <?php the_content(); //from functions.php ?>
             </div>
-       
+            <?php if(is_single()): ?>
+       <div class="postmeta"> 
+                
+                <span class="date alignleft"> Posted on <?php the_date(); ?> </span> 
+                
+                <span class="categories"> 
+                    in <?php the_category(' '); ?>                
+                </span>              
+                <span class="tags alignright">
+                    <?php the_tags(); ?>
+                </span> 
+            </div><!-- end postmeta --> 
+            <?php endif; // is single ?> 
         
 		<?php comments_template(); ?>
 		 </article><!-- end post -->

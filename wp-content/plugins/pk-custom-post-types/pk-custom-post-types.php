@@ -12,39 +12,39 @@ Version: 0.1
  */
 add_action( 'init', 'mmc_register_post_type' );
 function mmc_register_post_type(){
-	register_post_type( 'product', array(
+	register_post_type( 'project', array(
 		'has_archive' => true,
 		'public' => true,
-		'description' => 'These are products for the catalog',
+		'description' => 'These are projects for the catalog',
 		'rewrite' => array( 'slug' => 'shop' ),
 		'labels' => array(
-			'name' => 'Products',
-			'singular_name' => 'Product',
-			'add_new_item' => 'Add New Product',
-			'edit_item' => 'Edit Product',
+			'name' => 'Projects',
+			'singular_name' => 'Project',
+			'add_new_item' => 'Add New project',
+			'edit_item' => 'Edit project',
 		),
 		'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt', 
 			'custom-fields', 'revisions' ),
 	) );
 
-	//add "brand" sorting to our products
-	register_taxonomy( 'brand', 'product', array(
+	//add "brand" sorting to our projects
+	register_taxonomy( 'status', 'project', array(
 		'hierarchical' => true, //act like categories
-		'rewrite' => array( 'slug' => 'brands' ),
+		'rewrite' => array( 'slug' => 'status' ),
 		'labels' => array( 
-			'name' => 'Brands',
-			'singular-name' => 'Brand',
-			'add_new_item' => 'Add New Brand',
+			'name' => 'Statuses',
+			'singular-name' => 'Status',
+			'add_new_item' => 'Add New Status',
 		),
 	) );
-	//add "feature" sorting to our products
-	register_taxonomy( 'feature', 'product', array(
+	//add "feature" sorting to our projects
+	register_taxonomy( 'project-tag', 'project', array(
 		'hierarchical' => false, //act like categories
-		'rewrite' => array( 'slug' => 'features' ),
+		'rewrite' => array( 'slug' => 'project-tags' ),
 		'labels' => array( 
-			'name' => 'Features',
-			'singular-name' => 'Feature',
-			'add_new_item' => 'Add New feature',
+			'name' => 'project-tags',
+			'singular-name' => 'project tag',
+			'add_new_item' => 'Add New project tag',
 		),
 	) );
 }
