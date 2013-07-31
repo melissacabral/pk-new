@@ -157,7 +157,9 @@ function pk_raffle_db_lookup(){
         $raffles = $wpdb->get_results("SELECT * FROM ".$wpdb->prefix."posts AS `posts` WHERE `posts`.`ID` IN (".$ids.") ORDER BY post_date DESC LIMIT 1");
         
     }
-    return $raffles;
+    if(isset($raffles)){
+        return $raffles;
+    }
 }
 
 //Display raffles

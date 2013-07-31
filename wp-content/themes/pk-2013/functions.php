@@ -5,6 +5,63 @@
  * @since pk 0.1
  */
 
+/**
+ * Custom callback so custom background images are applied to the html tag instead of default body tag. 
+ */
+function change_custom_background_cb() {
+	// $background is the saved custom image, or the default image.
+	$background = set_url_scheme( get_background_image() );
+
+	// $color is the saved custom color.
+	// A default has to be specified in style.css. It will not be printed here.
+	$color = get_theme_mod( 'background_color' );
+
+	if ( ! $background && ! $color )
+		return;
+
+	$style = $color ? "background-color: #$color;" : '';
+
+	if ( $background ) {
+		$image = " background-image: url('$background');";
+
+		$repeat = get_theme_mod( 'background_repeat', 'repeat' );
+		if ( ! in_array( $repeat, array( 'no-repeat', 'repeat-x', 'repeat-y', 'repeat' ) ) )
+			$repeat = 'repeat';
+		$repeat = " background-repeat: $repeat;";
+
+		$position = get_theme_mod( 'background_position_x', 'left' );
+		if ( ! in_array( $position, array( 'center', 'right', 'left' ) ) )
+			$position = 'left';
+		$position = " background-position: top $position;";
+
+		$attachment = get_theme_mod( 'background_attachment', 'scroll' );
+		if ( ! in_array( $attachment, array( 'fixed', 'scroll' ) ) )
+			$attachment = 'scroll';
+		$attachment = " background-attachment: $attachment;";
+
+		$style .= $image . $repeat . $position . $attachment;
+	}
+?>
+<style type="text/css" id="custom-background-css">
+html { <?php echo trim( $style ); ?> }
+</style>
+<?php
+}
+
+
+	$defaults = array(
+	'default-color'          => '302e38',
+	'default-image'          => '',
+	'wp-head-callback'       => 'change_custom_background_cb',
+	'admin-head-callback'    => '',
+	'admin-preview-callback' => ''
+);
+add_theme_support( 'custom-background', $defaults );
+
+
+/**
+ * Change header implementation to responsive/fluid css instead of img
+ */
 add_action('wp_head', 'pk_header_style');
 function pk_header_style(){
 	?> <style type="text/css">
@@ -20,6 +77,7 @@ function pk_header_style(){
  */
 add_action( 'after_setup_theme', 'pk_setup' );
 function pk_setup() {
+	if ( ! isset( $content_width ) ) $content_width = 700;
 	// This theme styles the visual editor with editor-style.css to match the theme style.
 	add_editor_style();
 
@@ -73,8 +131,9 @@ function pk_setup() {
 
 	 if ( is_singular() ) wp_enqueue_script( "comment-reply" );
 }
+
 /**
- * remove wiodth and height from thumbs
+ * remove width and height from thumbs
  */
 add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10 );
 add_filter( 'image_send_to_editor', 'remove_thumbnail_dimensions', 10 );
@@ -143,20 +202,5 @@ function pk_header_titles() {
 		bloginfo('name'); 
 	}
 }
-/**
- * short titles for the home page
- */
-function pk_short_title($str, $length, $minword = 3){
-    $sub = '';
-    $len = 0;   
-    foreach (explode(' ', $str) as $word){
-        $part = (($sub != '') ? ' ' : '') . $word;
-        $sub .= $part;
-        $len += strlen($part);       
-        if (strlen($word) > $minword && strlen($sub) >= $length){
-            break;
-        }
-    }   
-    echo $sub . (($len < strlen($str)) ? '<span class="ellipses">&hellip;</span>' : '');
-}
+
 
