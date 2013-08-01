@@ -132,7 +132,7 @@ textarea {
  }
  /* == %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  PK Custom Styles */
  html{
- 
+
  	color:#bebec0;
  	font-family: Dosis, Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
  	font-size: 100%;
@@ -260,17 +260,17 @@ textarea {
  	
  }
  .main-navigation .site-name a {
- width:100%;
+ 	width:100%;
 
  	display: block;
  	text-indent: -9999em;
  }
 
  /* ==main content container */
-   main{
+ main{
  	margin:4em 0 2% 2%;
  }
-  .home main{
+ .home main{
  	margin:2% 0 2% 2%;
  }
 
@@ -279,7 +279,7 @@ textarea {
  .sticky{
  	background-color: rgba(255,255,255,.15)
  }
-  main article h1{
+ main article h1{
  	color: #ceca6d;
  	font-size: 2.5em;
  }
@@ -324,11 +324,37 @@ textarea {
  }
  .wp-caption{
  	background-color: rgba(0,0,0,.4);
- 	 }
+ }
  .wp-caption-text{
  	color:white;
  }
- /*== forms */
+ /*									==Search results and archive */
+
+ .search .thumb,
+ 	.archive .thumb{
+ 		float:right;
+ 		max-width: 31.33%;
+ 		margin-left:2%;
+ 		height: auto;
+ 	}
+
+ .search main article,
+ .archive main article{
+ 	margin-bottom:2em;
+ }
+ .search main h1,
+ .archive main h1{
+ 	font-size:1.5em;
+ 	max-height:2.6em;
+ 	overflow: hidden;
+ 	
+ }
+ .search .thumb,
+ .archive .thumb{
+ 	margin-bottom: 1em;
+ }
+
+ /*									== forms */
  main form{
  	width:98%;
  	max-width:50em;
@@ -339,10 +365,10 @@ textarea {
  	font-size: 1.2em;
  	padding:.25em;
  }
-/*==comments*/
-.bypostauthor {
-	background-color:rgba(255,255,255,.2);
-}
+ /*==comments*/
+ .bypostauthor {
+ 	background-color:rgba(255,255,255,.2);
+ }
 
  /* ==thumbnail placeholder */
  .placeholder{
@@ -427,8 +453,8 @@ textarea {
  	}
  	/* js fallback, clear every odd child*/
  	.home main article:nth-child(odd){
- 			clear:both;
- 		}
+ 		clear:both;
+ 	}
 
 
  }
@@ -450,11 +476,12 @@ textarea {
  		padding:0 .25em;
  	}
  	/*js fallback - clear every 4th article */
- 		.home main article:nth-child(4),
- 		.home main article:nth-child(7),
- 		.home main article:nth-child(10){
- 			clear:both !important;
- 		}
+ 	.home main article:nth-child(4),
+ 	.home main article:nth-child(7),
+ 	.home main article:nth-child(10){
+ 		clear:both !important;
+ 	}
+ 	
 
 
 
@@ -475,11 +502,11 @@ textarea {
  		clear:none !important;
  	}
  	/*js fallback - clear every 5th article */
- 		.home main article:nth-child(5),
- 		.home main article:nth-child(9),
- 		.home main article:nth-child(13){
- 			clear:both !important;
- 		}
+ 	.home main article:nth-child(5),
+ 	.home main article:nth-child(9),
+ 	.home main article:nth-child(13){
+ 		clear:both !important;
+ 	}
  	.single main,
  	.page main{
  		width:68%;
@@ -496,6 +523,10 @@ textarea {
  	.page aside .widget{
  		width: 100%;
  		float:none;
+ 	}
+ 	.search .thumb,
+ 	.archive .thumb{
+ 		max-width: 25%;
  	}
 
 

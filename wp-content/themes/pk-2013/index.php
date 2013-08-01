@@ -8,7 +8,7 @@
 		the_post(); ?>
 	
         <article id="post-<?php the_ID() ?>" <?php post_class( 'clearfix' ); ?>>
-             <?php the_post_thumbnail( 'pk-full', array( 'class' => 'thumb' ) ); ?> <h1 class="entry-title"> <a href="<?php the_permalink(); ?>"> 
+             <?php the_post_thumbnail( 'pk-full', array( 'class' => 'featured-header' ) ); ?> <h1 class="entry-title"> <a href="<?php the_permalink(); ?>"> 
 				<?php the_title(); ?> 
 			</a></h1>
             
