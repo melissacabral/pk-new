@@ -8,7 +8,7 @@ Version: 1.0
 License: GPLv2 
 License URI: license.txt
 */
-@import url(http://fonts.googleapis.com/css?family=Dosis);
+/*@import url(http://fonts.googleapis.com/css?family=Dosis);*/
 /* apply a natural box layout model to all elements */
 *, *:before, *:after {
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
@@ -112,6 +112,10 @@ textarea {
  	float:right;
  	margin-left:1em;
  }
+ .aligncenter{
+ 	text-align: center;
+ 	margin:0 auto;
+ }
 
  .clearfix:before,
  .clearfix:after {
@@ -128,7 +132,7 @@ textarea {
  }
  /* == %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  PK Custom Styles */
  html{
- 	background-color:#302e38;
+ 
  	color:#bebec0;
  	font-family: Dosis, Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
  	font-size: 100%;
@@ -272,6 +276,9 @@ textarea {
 
 
  /* == post articles */
+ .sticky{
+ 	background-color: rgba(255,255,255,.15)
+ }
   main article h1{
  	color: #ceca6d;
  	font-size: 2.5em;
@@ -311,6 +318,16 @@ textarea {
  	font-size:.9em;
  	;
  }
+ /*==gallery*/
+ .gallery-caption{
+ 	color:white;
+ }
+ .wp-caption{
+ 	background-color: rgba(0,0,0,.4);
+ 	 }
+ .wp-caption-text{
+ 	color:white;
+ }
  /*== forms */
  main form{
  	width:98%;
@@ -322,7 +339,10 @@ textarea {
  	font-size: 1.2em;
  	padding:.25em;
  }
-
+/*==comments*/
+.bypostauthor {
+	background-color:rgba(255,255,255,.2);
+}
 
  /* ==thumbnail placeholder */
  .placeholder{
@@ -333,6 +353,63 @@ textarea {
  	margin:0 auto;
  	min-height: 160px;
  	background-position: center center;
+ }
+ /*==html tags*/
+ main{
+ 	word-wrap: break-word;
+ }
+ .single main h1,
+ .page main h1{
+ 	margin: .5em 0 0 0;
+ }
+ .single main h2,
+ .page main h2{
+ 	margin: .5em 0 .3em 0;
+ 	border-top: dotted 1px #444;
+ }
+ main h2+h3{
+ 	margin:0;
+ }
+ .single main h3,
+ .page main h3{
+ 	text-transform: uppercase;
+ 	font-size: 1em;
+ }
+ main h4,
+ main h5{
+ 	color:#FFF;
+ }
+ main h6{
+ 	text-transform: uppercase;
+ 	font-family: sans-serif;
+ }
+ main blockquote{
+ 	background-color:rgba(0,0,0,.2);
+ 	padding: .25em  .6em;
+ 	margin:0;
+ 	font-size: 1em;
+
+ }
+ blockquote cite{
+ 	display: block;
+ 	text-align: right;
+ }
+ table{
+ 	border: solid 1px #444;
+ 	width: 100%;
+
+ }
+ th{
+ 	background-color:rgba(0,0,0,.1);
+ }
+ td, th{
+ 	text-align: left;
+ 	padding:.25em;
+ 	border-bottom: solid 1px #444;
+ }
+ pre{
+ 	background-color: rgba(0,0,0,.1);
+ 	padding: .5em;
  }
 
 
@@ -403,6 +480,24 @@ textarea {
  		.home main article:nth-child(13){
  			clear:both !important;
  		}
+ 	.single main,
+ 	.page main{
+ 		width:68%;
+ 		float:left;
+ 	}
+ 	.single aside,
+ 	.page aside{
+ 		width: 28%;
+ 		float:right;
+ 		clear: none;
+ 		margin:4em 0;
+ 	}
+ 	.single aside .widget,
+ 	.page aside .widget{
+ 		width: 100%;
+ 		float:none;
+ 	}
+
 
 
 
@@ -424,9 +519,7 @@ textarea {
  	.home header[role=banner] .site-name a{
  		height: 285px;
  	}
- 	aside#sidebar{
- 		margin:0 2%;
- 	}
+ 	
 
 
  }

@@ -15,7 +15,9 @@
 
                               
             <div class="entry-content">
-                <?php the_content(); //from functions.php ?>
+                <?php the_content(); ?>
+
+                 <?php wp_link_pages(); ?>
             </div>
             <?php if(is_single()): ?>
        <div class="postmeta"> 

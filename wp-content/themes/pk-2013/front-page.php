@@ -8,34 +8,29 @@
           the_post(); ?>
 
       <article id="post-<?php the_ID() ?>" <?php post_class( 'clearfix' ); ?>>
-         <a class="thumb-link" href="<?php the_permalink(); ?>"> 
-        <?php if( has_post_thumbnail() ){
+        <a class="thumb-link" href="<?php the_permalink(); ?>"> 
+           <?php if( has_post_thumbnail() ){
             the_post_thumbnail( 'pk-small-tile', array( 'class' => 'thumb' ) ); 
         }else{
             echo '<div class="placeholder">&nbsp;</div>';
         }
         ?>
-       
-        <h1 class="entry-title"> 
-           
-                <?php the_title(); ?> 
-            
+
+        <h1 class="entry-title">
+
+            <?php the_title(); ?> 
+
         </h1>
     </a>
 
 
+    
 
-        <div class="entry-content visually-hidden">
-            <?php the_content(); //from functions.php ?>
-        </div>
-
-        
-        <?php comments_template(); ?>
-    </article><!-- end post -->
-    <?php 
-    endwhile;
-    else: ?>
-    <h2>Sorry, no posts found</h2>
+</article><!-- end post -->
+<?php 
+endwhile;
+else: ?>
+<h2>Sorry, no posts found</h2>
 <?php endif; //END OF LOOP. ?>
 
 
