@@ -7,7 +7,7 @@
 		while( have_posts() ):
 		the_post(); ?>
 	
-        <article id="post-<?php the_ID() ?>" <?php post_class( 'clearfix' ); ?>>
+        <article id="post-<?php the_ID() ?>" <?php post_class( ); ?>>
              <?php the_post_thumbnail( 'pk-full', array( 'class' => 'featured-header' ) ); ?> <h1 class="entry-title"> <a href="<?php the_permalink(); ?>"> 
 				<?php the_title(); ?> 
 			</a></h1>
@@ -19,19 +19,7 @@
 
                  <?php wp_link_pages(); ?>
             </div>
-            <?php if(is_single()): ?>
-       <div class="postmeta"> 
-                
-                <span class="date alignleft"> Posted on <?php the_date(); ?> </span> 
-                
-                <span class="categories"> 
-                    in <?php the_category(' '); ?>                
-                </span>              
-                <span class="tags alignright">
-                    <?php the_tags(); ?>
-                </span> 
-            </div><!-- end postmeta --> 
-            <?php endif; // is single ?> 
+             <?php pk_postmeta(); ?>
         
 		<?php comments_template(); ?>
 		 </article><!-- end post -->

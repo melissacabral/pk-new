@@ -21,10 +21,11 @@
             <?php the_title(); ?> 
 
         </h1>
+        
     </a>
 
 
-    
+     <?php pk_postmeta(); ?>
 
 </article><!-- end post -->
 <?php 

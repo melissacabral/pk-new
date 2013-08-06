@@ -41,21 +41,21 @@ function change_custom_background_cb() {
 
 		$style .= $image . $repeat . $position . $attachment;
 	}
-?>
-<style type="text/css" id="custom-background-css">
-html { <?php echo trim( $style ); ?> }
-</style>
-<?php
+	?>
+	<style type="text/css" id="custom-background-css">
+	html { <?php echo trim( $style ); ?> }
+	</style>
+	<?php
 }
 
 
-	$defaults = array(
+$defaults = array(
 	'default-color'          => '302e38',
 	'default-image'          => '',
 	'wp-head-callback'       => 'change_custom_background_cb',
 	'admin-head-callback'    => '',
 	'admin-preview-callback' => ''
-);
+	);
 add_theme_support( 'custom-background', $defaults );
 
 
@@ -65,11 +65,11 @@ add_theme_support( 'custom-background', $defaults );
 add_action('wp_head', 'pk_header_style');
 function pk_header_style(){
 	?> <style type="text/css">
-    .home header[role=banner]{
-    background-image: url(<?php header_image(); ?>);
-    background-size: cover;
-    background-position: center center;
-        }</style> <?php
+	.home header[role=banner]{
+		background-image: url(<?php header_image(); ?>);
+		background-size: cover;
+		background-position: center center;
+	}</style> <?php
 }
 /** 
  * Turn on basic theme support, and menus
@@ -89,7 +89,7 @@ function pk_setup() {
 		'default-image' => get_template_directory_uri() . '/img/default-header.png',
 		'flex-height'  => true,
 		'flex-width'  => true,
-	);
+		);
 	add_theme_support( 'custom-header', $header_args );
 	add_theme_support( 'custom-background' );
 	
@@ -129,7 +129,7 @@ function pk_setup() {
 		) );
 
 
-	 if ( is_singular() ) wp_enqueue_script( "comment-reply" );
+	if ( is_singular() ) wp_enqueue_script( "comment-reply" );
 }
 
 /**
@@ -139,8 +139,8 @@ add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10 );
 add_filter( 'image_send_to_editor', 'remove_thumbnail_dimensions', 10 );
 
 function remove_thumbnail_dimensions( $html ) {
-    $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
-    return $html;
+	$html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
+	return $html;
 }
 
 
@@ -152,24 +152,24 @@ function remove_thumbnail_dimensions( $html ) {
  */
 add_action( 'wp_enqueue_scripts', 'pk_js_activation' ); 
 function pk_js_activation() {
-    wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'jquery' );
 	$modernizr_path = get_template_directory_uri() . '/js/vendor/modernizr.js';
-    wp_register_script( 'modernizrjs', $modernizr_path );
-    wp_enqueue_script( 'modernizrjs' );
-    wp_enqueue_script(
-    	'dotdotdot-js',
-    	get_template_directory_uri() . '/js/vendor/jquery.dotdotdot.min.js',
-    	array( 'jquery' ),
-    	false,
+	wp_register_script( 'modernizrjs', $modernizr_path );
+	wp_enqueue_script( 'modernizrjs' );
+	wp_enqueue_script(
+		'dotdotdot-js',
+		get_template_directory_uri() . '/js/vendor/jquery.dotdotdot.min.js',
+		array( 'jquery' ),
+		false,
 		true // loaded in the footer
 		);
-    wp_enqueue_script(
+	wp_enqueue_script(
 		'main-js',
 		get_template_directory_uri() . '/js/main.js',
 		array( 'jquery', 'dotdotdot-js' ),
 		false,
 		true // loaded in the footer
-	);
+		);
 	
 	
 	wp_register_style( 'normalize', get_template_directory_uri() . '/css/normalize.css' );
@@ -202,5 +202,46 @@ function pk_header_titles() {
 		bloginfo('name'); 
 	}
 }
+/**
+ * Add status names to post class
+ */
+add_filter('post_class', 'anthill_category_id_class');
+function anthill_category_id_class($classes) {
+	global $post;
+    //every post gets a clearfix
+	$classes[] = 'clearfix';    
 
+   	//if it does not have a featured image, add the class  no-image
+	if(!has_post_thumbnail($post->ID))
+		$classes[] = "no-image";
+	
+	// add the status the class	
+	if('project' == get_post_type($post->ID)){
+		foreach(get_the_terms($post->ID, 'status') as $category){
+			$classes[] = 'status-'.$category->slug;
+		}
+	}
+
+    //all done!
+	return $classes;
+}
+
+
+function pk_postmeta(){
+	?> <?php if(is_single()): ?>
+	<div class="postmeta"> 
+		
+		<span class="date alignleft"> Posted on <?php the_date(); ?> </span> 
+
+		<span class="categories"> 
+			in <?php the_category(' '); ?>                
+		</span>              
+		<span class="tags alignright">
+			<?php the_tags(); ?>
+			
+		</span> 
+	</div><!-- end postmeta -->
+<?php endif; //is single ?>
+<?php edit_post_link() ?> <?php 
+}
 

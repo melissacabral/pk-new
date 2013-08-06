@@ -1,7 +1,7 @@
 <?php 
 /*
 Plugin Name: Custom Post Types
-Description: Adds the CPT stuff for raffles, etc
+Description: Adds the CPT stuff for projects, etc
 Author: Melissa Cabral
 Version: 0.1
 */
@@ -16,7 +16,7 @@ function mmc_register_post_type(){
 		'has_archive' => true,
 		'public' => true,
 		'description' => 'These are projects for the catalog',
-		'rewrite' => array( 'slug' => 'shop' ),
+		'rewrite' => array( 'slug' => 'projects' ),
 		'labels' => array(
 			'name' => 'Projects',
 			'singular_name' => 'Project',
