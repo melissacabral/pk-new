@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 
 <main>
-    <?php get_search_form(); ?>
     <h2><?php printf( __( 'Search Results for: %s' ), '<span>' . get_search_query() . '</span>'); ?></h2>
 
 
@@ -12,7 +11,12 @@
           the_post(); ?>
       
       <article id="post-<?php the_ID() ?>" <?php post_class( 'clearfix' ); ?>>
-       <?php the_post_thumbnail( 'pk-small-tile', array( 'class' => 'thumb' ) ); ?> <h1 class="entry-title"> <a href="<?php the_permalink(); ?>"> 
+      <?php if(has_post_thumbnail()):?>
+       <a href="<?php the_permalink(); ?>">
+        <?php the_post_thumbnail( 'pk-small-tile', array( 'class' => 'thumb' ) );?>
+        </a>
+        <?php endif; //has thumb ?>
+        <h1 class="entry-title"> <a href="<?php the_permalink(); ?>"> 
        <?php the_title(); ?> 
    </a></h1>
    
@@ -23,17 +27,7 @@
 
 </div>
 
-<div class="postmeta"> 
-    
-    <span class="date"> Posted on <?php the_date(); ?> </span> 
-    
-    <span class="categories"> 
-        in <?php the_category(' '); ?>                
-    </span>              
-    <span class="tags">
-        <?php the_tags(); ?>
-    </span> 
-</div><!-- end postmeta --> 
+<?php pk_postmeta(); ?>
 
 
 <?php comments_template(); ?>

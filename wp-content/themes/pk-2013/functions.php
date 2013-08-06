@@ -143,6 +143,14 @@ function remove_thumbnail_dimensions( $html ) {
 	return $html;
 }
 
+/**
+ * better excerpt
+ */
+add_filter( 'excerpt_length', 'pk_excerpt_length' );
+function pk_excerpt_length(){
+	return 30;
+}
+
 
 /**
  * Enqueues scripts and styles for front-end
@@ -226,22 +234,27 @@ function anthill_category_id_class($classes) {
 	return $classes;
 }
 
-
+/**
+ * Better post meta
+ */
 function pk_postmeta(){
-	?> <?php if(is_single()): ?>
-	<div class="postmeta"> 
+	global $post;
+	
+	if(is_single() OR is_search() OR is_archive()): ?>
+	<div class="postmeta clearfix"> 
 		
-		<span class="date alignleft"> Posted on <?php the_date(); ?> </span> 
+		<span class="date alignleft"> Posted on <?php the_time('F j, Y'); ?> </span> 
 
 		<span class="categories"> 
-			in <?php the_category(' '); ?>                
+			<?php the_terms( $post->ID,'category', 'in ' ); ?>                
 		</span>              
 		<span class="tags alignright">
 			<?php the_tags(); ?>
 			
 		</span> 
 	</div><!-- end postmeta -->
-<?php endif; //is single ?>
-<?php edit_post_link() ?> <?php 
+<?php 
+	endif; //is single 
+	edit_post_link() ;
 }
 

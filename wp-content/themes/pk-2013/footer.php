@@ -1,5 +1,3 @@
-
-
 <footer class="clearfix" id="colophon" role="contentinfo">
     <div class="widget-container">  
 

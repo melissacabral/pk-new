@@ -8,22 +8,27 @@
           the_post(); ?>
 
       <article id="post-<?php the_ID() ?>" <?php post_class( ); ?>>
-         <?php the_post_thumbnail( 'pk-small-tile', array( 'class' => 'thumb' ) );?>
-         <?php the_terms( $post->ID, 'status', '<h2 class="status">', ', ', '</h2>' ) ?>
-         <?php the_terms( $post->ID, 'project-tag', '<h3 class="project-tag"><span>', '</span><span>', '</span></h2>' ) ?>
-         <h1 class="entry-title"> <a href="<?php the_permalink(); ?>"> 
-         <?php the_title(); ?> 
-         </a></h1>          
 
-         <div class="entry-content">
+       <?php if(has_post_thumbnail()):?>
+       <a href="<?php the_permalink(); ?>">
+        <?php the_post_thumbnail( 'pk-small-tile', array( 'class' => 'thumb' ) );?>
+        </a>
+        <?php endif; //has thumb ?>
+        <?php the_terms( $post->ID, 'status', '<h2 class="status">', ', ', '</h2>' ) ?>
+        <?php the_terms( $post->ID, 'project-tag', '<h3 class="project-tag"><span>', '</span><span>', '</span></h2>' ) ?>
+        <h1 class="entry-title"> <a href="<?php the_permalink(); ?>"> 
+           <?php the_title(); ?> 
+        </a></h1>          
+
+        <div class="entry-content">
             <?php the_excerpt(); ?>
 
             <?php wp_link_pages(); ?>
         </div>
-       <?php pk_postmeta(); ?>
+        <?php pk_postmeta(); ?>
 
-<?php comments_template(); ?>
-</article><!-- end post -->
+        <?php comments_template(); ?>
+    </article><!-- end post -->
 <?php 
 endwhile;
 else: ?>

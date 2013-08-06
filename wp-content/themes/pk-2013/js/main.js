@@ -1,4 +1,4 @@
-jQuery( document ).ready( function( $ ) {
+jQuery( window ).load( function( $ ) {
 
 	 /**
 	  * make placeholder image height the same as the thumbnails - update as the window resizes

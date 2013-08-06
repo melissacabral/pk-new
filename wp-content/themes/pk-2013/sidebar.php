@@ -1,3 +1,5 @@
 <aside id="sidebar" class="cf clearfix">
-    <?php dynamic_sidebar( 'sidebar' )  ?>        
+	 <div class="widget-container">  
+    <?php dynamic_sidebar( 'sidebar' )  ?>  
+    </div>      
 </aside><!-- end sidebar --> 
