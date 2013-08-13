@@ -9,13 +9,19 @@
 
       <article id="post-<?php the_ID() ?>" <?php post_class( 'clearfix' ); ?>>
         <a class="thumb-link" href="<?php the_permalink(); ?>"> 
-           <?php if( has_post_thumbnail() ){
-            the_post_thumbnail( 'pk-small-tile', array( 'class' => 'thumb' ) ); 
-        }else{
-            echo '<div class="placeholder">&nbsp;</div>';
-        }
+           <?php 
+           if( has_post_thumbnail() ){
+                if(get_post_format() != 'image'){
+                    the_post_thumbnail( 'pk-small-tile', array( 'class' => 'thumb' ) ); 
+                }else{
+                     the_post_thumbnail( 'pk-tall-tile', array( 'class' => 'thumb thumb-tall' ) ); 
+                }
+            
+            }else{
+                echo '<div class="placeholder">&nbsp;</div>';
+            }
         ?>
-
+      
         <h1 class="entry-title">
 
             <?php the_title(); ?> 

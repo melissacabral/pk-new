@@ -284,7 +284,7 @@ textarea {
  }
  .post-edit-link{
  	position: absolute;
- 	bottom:16px;
+ 	top:16px;
  	right: 16px;
  	background-color: #A09616;
  	padding: .25em;
@@ -293,9 +293,13 @@ textarea {
  .sticky{
  	background-color: rgba(255,255,255,.15)
  }
+ .home main article{
+ 	margin:2% 2% 2% 0 ;
+ }
  main article h1{
  	color: #ceca6d;
  	font-size: 2.5em;
+ 	position: relative;
  }
  main article h1 a{
  	color:#ceca6d;
@@ -303,18 +307,40 @@ textarea {
  .home main  h1 a{
  	
  }
+ .home main .format-image h1{
+ 	display: none;
+
+ }
  .home main article h1 {
  	font-size:1.5em;
  	line-height: 1.2em;
  	height:2.4em;
  	margin-bottom: 0;
  	color: #ccc;
- 	overflow: hidden;
+ 	
  }
-
+ .category-sold-out h1:before{
+ 	content:".";
+ 	background-color: #C00127;
+ 	color: #C00127;
+ 	text-align: center;
+ 	display: block;
+ 	position: absolute;
+ 	top: -1.2em;
+ 	right: .5em;
+ 	width: 1em;
+ 	height: 1em;
+ 	line-height: 1em;
+ 	z-index: 2000;
+ 	-webkit-border-radius: 50px;
+border-radius: 50px; 
+ }
  article .thumb-link{
  	display: block;
  	padding-bottom: 1em;
+ }
+ article.format-image .thumb-link{
+ 	padding: 0;
  }
  a:hover img{
  	opacity: .7;

@@ -12,6 +12,7 @@ Version: 0.1
  */
 add_action( 'init', 'mmc_register_post_type' );
 function mmc_register_post_type(){
+	$proj_icon = plugins_url( 'img/icon-project.png', __FILE__ );
 	register_post_type( 'project', array(
 		'has_archive' => true,
 		'public' => true,
@@ -25,6 +26,7 @@ function mmc_register_post_type(){
 		),
 		'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt', 
 			'custom-fields', 'revisions' ),
+		'menu_icon' => $proj_icon,
 	) );
 
 	//add "brand" sorting to our projects
@@ -46,6 +48,23 @@ function mmc_register_post_type(){
 			'singular-name' => 'project tag',
 			'add_new_item' => 'Add New project tag',
 		),
+	) );
+	//CHARACTERS
+	$char_icon = plugins_url( 'img/icon-character.png', __FILE__ );
+	register_post_type( 'character', array(
+		'has_archive' => true,
+		'public' => true,
+		'description' => 'Bio Pages for Paulkaiju Characters',
+		'rewrite' => array( 'slug' => 'characters' ),
+		'labels' => array(
+			'name' => 'Characters',
+			'singular_name' => 'Character',
+			'add_new_item' => 'Add New Character',
+			'edit_item' => 'Edit Character',
+		),
+		'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt', 
+			'custom-fields', 'revisions' ),
+		'menu_icon' => $char_icon,
 	) );
 }
 

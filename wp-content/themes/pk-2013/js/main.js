@@ -9,10 +9,10 @@ jQuery( document ).ready( function( $ ) {
 	 		'height': imgheight + 'px'
 	 	});
 
-	 	var articleheight =  $('.home main article').height() ;
-	 	$('.home main article').css({
-	 		'height': articleheight + 'px'
-	 	});
+	 	//var articleheight =  $('.home main article').height() ;
+	 	//$('.home main article').css({
+	 	//	'height': articleheight + 'px'
+	 	//});
 	 }
 	 placeholderSize(); 
 	 $(".home main article h1").dotdotdot();

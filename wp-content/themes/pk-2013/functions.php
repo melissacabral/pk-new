@@ -98,7 +98,10 @@ function pk_setup() {
 	
 	//image sizes
 	add_image_size( 'pk-small-tile', 400, 300, true );
+	add_image_size( 'pk-tall-tile', 400, 558, true );
 	add_image_size( 'pk-full', 1120, 290, true );
+
+	add_theme_support( 'post-formats', array('gallery', 'image', 'video') );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(

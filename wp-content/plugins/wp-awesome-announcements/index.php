@@ -37,6 +37,7 @@ function sap_register_raffles() {
 	  	'capability_type' => 'post',
      	'rewrite' => false,
      	'supports' => array('title', 'editor'),
+        'menu_icon' => plugins_url( 'img/icon-raffle.png', __FILE__ ),
      );
  	register_post_type('raffles', $args);
 }
