@@ -19,7 +19,7 @@ jQuery( document ).ready( function( $ ) {
 	 $( window ).resize(function(){
 	 	//reset the height
 	 	$('.home main article').css("height", "auto");
-	 	 $(".home main article h1").dotdotdot(); 
+	 	 $(".home main .entry-title").dotdotdot(); 
 	 	 placeholderSize();	
 	 	
 
