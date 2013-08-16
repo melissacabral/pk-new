@@ -13,12 +13,8 @@ License URI: license.txt
 *, *:before, *:after {
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
-html,
-button,
-input,
-select,
-textarea {
-	color: #222;
+html {
+	color: #fff;
 }
 
 body {
@@ -133,8 +129,7 @@ textarea {
  }
  /* == %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  PK Custom Styles */
  html{
-
- 	color:#bebec0;
+ 	color:#dfdfdf;
  	font-family: Dosis, Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
  	font-size: 100%;
  	line-height: 1.4em;
@@ -145,6 +140,7 @@ textarea {
  a{
  	color:white;
  	text-decoration: none;
+
  }
  a:hover{
  	background-color:rgba(255,255,255,.2);
@@ -156,8 +152,8 @@ textarea {
  }
  main img, header[role=banner]{
  	-webkit-box-shadow:  1px 2px 2px 0px rgba(0, 0, 0, .5);
-        
-        box-shadow:  1px 2px 2px 0px rgba(0, 0, 0, .5);
+
+ 	box-shadow:  1px 2px 2px 0px rgba(0, 0, 0, .5);
  }
  body{
  	max-width: 70em;
@@ -180,98 +176,64 @@ textarea {
  .home header[role=banner] .site-name{
  	background-color:rgba(24,17,59,.7);
  	background-image: url( img/paulkaiju-logo-small.png);
- 	background-position: center 45px;
+ 	background-position: center 6px;
  	background-repeat: no-repeat;	
  	width:100%;
- 	height: 200px;
+ 	height: 160px;
  	margin:0;
 
  }
  .home header[role=banner] .site-name a{
  	display: block;
  	width:100%;
- 	height: 200px;
+ 	height: 160px;
  }
  .home header[role=banner] .site-name a:hover, 
  .home header[role=banner] .site-name a:focus{
  	background-color: rgba(255,255,255,.2);
  }
  /* == navigation */
- .main-navigation{
- 	position: absolute;
- 	top:0;
- 	left:0;
- 	background-color:black;
- 	background-color: rgba(0,0,0,.8);
- 	width: 100%;
- 	
+.nav-toggle{
+	display: none;
+}
+ .js .nav-toggle{
+ 	clear: both;
+ 	display: block;
+ 	color: white;
+ 	padding: .5em;
+ 	font-size: 1.2em;
+ 	text-decoration: none;
+ 	background-color: black;
 
  }
- .admin-bar .main-navigation{
- 	top:27px;
+ .js .nav-toggle:before{
+ 	content: '\00bb\00a0'; /*arrow and nbsp*/
  }
- .main-navigation .wrapper{
- 	position: relative;
- 	width:98%;
- 	margin:0 auto;
- 	max-width: 68em;
- 	
+ .js #toggle-menu {
+ 	overflow: hidden;
+ 	max-height: 0;
+ 	margin: 0;
  }
+ #toggle-menu.active {
+ 	max-height: 15em;
+ }
+ /*end toggle*/
  .main-navigation ul{
- 	
- 	margin:0;
+ 	list-style-type: none;
  	padding: 0;
- }
- .main-navigation li{
- 	display: inline-block;
- 	margin:0;
- 	font-size: 1.2em;
+ 	margin: 0;
  }
  .main-navigation li a{
  	display: block;
- 	padding: .5em 1em;
- }
- .home .raffle-open ul{
- 	padding-left: 100px;
- }
- .main-navigation .raffle{
- 	background-image: url(img/paulkaiju-raffle.png);
- 	width: 93px;
- 	height: 66px;
- 	position: absolute;
- 	top:0;
- 	right:0;
- 	background-position: left bottom;
- 	text-indent: -99999em;
- }
- .home .main-navigation .raffle{
- 	top:0;
- 	left:0px;
- }
- .main-navigation .raffle:hover{
- 	height: 74px;
- }
- .main-navigation .raffle a{
- 	display: block;
- 	height: 100%;
- 	background-color: transparent;
- }
+ 	font-size: 1.3em;
+ 	padding: .5em;
+ 	background-color: #3F3F3F;
+ 	background-color: rgba(0,0,0,.7);
+ 	text-align: center;
 
- /*== main navigation on interior pages (logo) */
- .main-navigation .site-name{
- 	margin: 0;
- 	font-size: 1em;
- 	background-image: url(img/paulkaiju-logo-small.png);
- 	background-repeat: no-repeat;
- 	background-position: -2px -103px;
- 	width:157px;
- 	
  }
- .main-navigation .site-name a {
- 	width:100%;
-
- 	display: block;
- 	text-indent: -9999em;
+ .main-navigation li a:hover{
+ 	background-color: black;
  }
 
  /* ==main content container */
@@ -303,8 +265,9 @@ textarea {
  }
  main article h1{
  	color: #ceca6d;
- 	font-size: 2.5em;
+ 	font-size: 2.2em;
  	position: relative;
+ 	line-height: 1.2em;
  }
  main article h1 a{
  	color:#ceca6d;
@@ -319,9 +282,7 @@ textarea {
  	background-color:black;
  	background-color: rgba(0,0,0,.5);
  	padding: .4em !important;
-
  	width: 100%;
- 
  	height:4em;
 
  }
@@ -350,7 +311,7 @@ textarea {
  	line-height: 1em;
  	z-index: 2000;
  	-webkit-border-radius: 50px;
-border-radius: 50px; 
+ 	border-radius: 50px; 
  }
  article .thumb-link{
  	display: block;
@@ -359,6 +320,7 @@ border-radius: 50px;
  article.format-image .thumb-link{
  	padding: 0;
  }
+ 
  a:hover img{
  	opacity: .7;
  }
@@ -474,20 +436,20 @@ border-radius: 50px;
  .pagination{
  	clear: both;
  	text-align: center;
-	margin:1em 0;
+ 	margin:1em 0;
  }
  .pagination a{
  	display: inline-block;
  	background-color: rgba(255,255,255,.15);
-	margin:.5em;
-	-webkit-border-radius: 4px;
-	border-radius: 4px; 
-	font-size: 1.3em;
-	padding: .25em .5em;
-}
-.pagination a:hover{
-	background-color: rgba(255,255,255,.3);
-}
+ 	margin:.5em;
+ 	-webkit-border-radius: 4px;
+ 	border-radius: 4px; 
+ 	font-size: 1.3em;
+ 	padding: .25em .5em;
+ }
+ .pagination a:hover{
+ 	background-color: rgba(255,255,255,.3);
+ }
  /*									==Search results and archive */
  .searchform  #s{
  	width: 72%;
@@ -497,9 +459,9 @@ border-radius: 50px;
  }
  .search .thumb,
  .archive .thumb{
- 		margin:1em auto;
- 		display: block;
- 	}
+ 	margin:1em auto;
+ 	display: block;
+ }
 
  .search main article,
  .archive main article{
@@ -517,6 +479,24 @@ border-radius: 50px;
  }
 
  /*									== forms */
+ form input, textarea{
+ 	-webkit-border-radius: 6px;
+ 	border-radius: 6px;
+ 	border:solid 1px #26292a;
+ 	-webkit-box-shadow:  0px 0px 0px 5px rgba(255, 255, 255, .1);
+ 	box-shadow:  0px 0px 0px 5px rgba(255, 255, 255, .1);
+ 	outline: none;
+ 	margin:.5em 0 ;
+ 	background: #e7f3fb; /* Old browsers */
+ 	background: -moz-linear-gradient(top,  #bbc5cb 0%, #e7f3fb 18%); /* FF3.6+ */
+ 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#bbc5cb), color-stop(18%,#e7f3fb)); /* Chrome,Safari4+ */
+ 	background: -webkit-linear-gradient(top,  #bbc5cb 0%,#e7f3fb 18%); /* Chrome10+,Safari5.1+ */
+ 	background: -o-linear-gradient(top,  #bbc5cb 0%,#e7f3fb 18%); /* Opera 11.10+ */
+ 	background: -ms-linear-gradient(top,  #bbc5cb 0%,#e7f3fb 18%); /* IE10+ */
+ 	background: linear-gradient(to bottom,  #bbc5cb 0%,#e7f3fb 18%); /* W3C */
+ 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bbc5cb', endColorstr='#e7f3fb',GradientType=0 ); /* IE6-9 */
+
+ }
  main form{
  	width:98%;
  	max-width:50em;
@@ -524,24 +504,101 @@ border-radius: 50px;
  }
  main form input, textarea{
  	width:100%;
- 	font-size: 1.2em;
- 	padding:.25em;
+ 	font-size: 1.1em;
+ 	padding:.4em;
+ 	font-family: Consolas, monaco, monospace;
  }
- input[type=submit], button, input[type=button]{
+ input[type=submit], button, .button, input[type=button]{
+ 	font-size: 1.3em;
+ 	font-weight: bold;
+ 	font-family: Dosis, Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
  	max-width: 400px;
- 	background-color:#c4bc8f;
- 	color:#21145A;
- 	border:none;
+ 	background-color:#cdc96b;
+ 	color:#1d2022; 	
  	outline: none;
  	padding: .25em .5em;
  	margin:0 .25em .25em;
  	-webkit-border-radius: 4px;
-border-radius: 4px; 
+ 	border-radius: 4px; 
+ 	text-shadow: 0px 1px 0px #d3d2b6;
+ 	filter: dropshadow(color=#d3d2b6, offx=0, offy=1);
+ 	-webkit-box-shadow:  0px 1px 20px 4px rgba(0, 0, 0, .2);
+ 	box-shadow:  0px 1px 20px 4px rgba(0, 0, 0, .2);
+ 	background: #dad792; /* Old browsers */
+ 	background: -moz-linear-gradient(top,  #dad792 5%, #ccc869 5%, #bcb745 97%); /* FF3.6+ */
+ 	background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#dad792), color-stop(5%,#ccc869), color-stop(97%,#bcb745)); /* Chrome,Safari4+ */
+ 	background: -webkit-linear-gradient(top,  #dad792 5%,#ccc869 5%,#bcb745 97%); /* Chrome10+,Safari5.1+ */
+ 	background: -o-linear-gradient(top,  #dad792 5%,#ccc869 5%,#bcb745 97%); /* Opera 11.10+ */
+ 	background: -ms-linear-gradient(top,  #dad792 5%,#ccc869 5%,#bcb745 97%); /* IE10+ */
+ 	background: linear-gradient(to bottom,  #dad792 5%,#ccc869 5%,#bcb745 97%); /* W3C */
+ 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dad792', endColorstr='#bcb745',GradientType=0 ); /* IE6-9 */
+ }
+ .readmore{
+ 	font-weight: normal;
+ 	white-space: nowrap;
+ 	font-size: .9em;
+ 	padding: .1em .25em;
+ 	margin: 0 .25em;
+ 	display: inline-block;
  }
  /*==comments*/
  .bypostauthor {
  	background-color:rgba(255,255,255,.2);
  }
+ .comments-area{
+ 	background-color: rgba(255,255,255,.05);
+ 	padding:1em;
+ 	font-size: 1.3em;
+ 	margin: 1em 0;
+ }
+ .single main h3.comment-reply-title{
+ 	color: #cbc666;
+ 	font-size:1.5em;
+ 	text-transform: inherit;
+ }
+ .required{
+ 	color: #E76B6F;
+ 	font-weight: bold;
+ 	font-size: 1.2em;
+ }
+ .form-allowed-tags{
+ 	display: none;
+ }
+ .commentlist{
+ 	list-style-type: none;
+ 	margin: 0;
+ 	padding: 0;
+ }
+ .comment{
+ 	clear: left;
+ 	padding: .5em;
+ 	border-bottom:solid 1px #444;
+ }
+ .commentlist .avatar{
+ 	float: left;
+ 	margin-right: 1em;
+
+ }
+ .comment .fn{
+ 	font-style: normal;
+ 	color: #E0E1C8;
+ 	
+ }
+ .says{
+ 	display: none;
+ }
+ .comment-meta a{
+ 	font-size:.7em;
+ 	color: #B4B4B4;
+ 	
+ }
+ .comment p{
+ 	margin-left:90px;
+ 	margin: .5em;
+ }
+
+
+
 
  /* ==thumbnail placeholder */
  .placeholder{
@@ -621,7 +678,7 @@ border-radius: 4px;
  	margin-bottom: .3em;
  }
  .widget_fastflickrwidget img{
-max-width: 28%;
+ 	max-width: 28%;
  }
  .widget ul{
  	list-style-type: none;
@@ -646,18 +703,23 @@ max-width: 28%;
  .social-menu .tumblr a{
  	background-image: url(img/icon_tumblr.png);
  }
-  .social-menu .instagram a{
+ .social-menu .instagram a{
  	background-image: url(img/icon_instagram.png);
  }
-  .social-menu .twitter a{
+ .social-menu .twitter a{
  	background-image: url(img/icon_twitter.png);
  }
-  .social-menu .flickr a{
+ .social-menu .flickr a{
  	background-image: url(img/icon_flickr.png);
  }
 
+ .credits{
+ 	display:block;
+ 	font-size: .9em;
+ 	margin: .5em 0;
+ }
 
- /* wide screens ----------- */
+ /* medium screens ----------- */
  @media only screen and (min-width : 460px) {
  	.home main article,
  	.widget-container .widget{
@@ -682,18 +744,104 @@ max-width: 28%;
  		margin-left:2%;
  		height: auto;
  	}
- 	 .project h2.status{
- 	
- 	width: 20%;
- 	
- }
- .project .project-tag{
- 	width: 20%;
- }
+ 	.project h2.status{
+
+ 		width: 20%;
+
+ 	}
+ 	.project .project-tag{
+ 		width: 20%;
+ 	}
 
 
  }
  @media only screen and (min-width : 690px) {
+ 	/*navigation*/
+ 	.js a.nav-toggle {
+ 		display: none;
+ 	}
+ 	.js #toggle-menu {
+ 		max-height: none;/*the nav was hidden on smaller screens, this brings it back*/
+ 	}
+ 	.main-navigation{
+
+
+ 		position: absolute;
+ 		top:0;
+ 		left:0;
+ 		background-color:black;
+ 		background-color: rgba(0,0,0,.8);
+ 		width: 100%;
+
+
+ 	}
+ 	.admin-bar .main-navigation{
+ 		top:27px;
+ 	}
+ 	.main-navigation .wrapper{
+ 		position: relative;
+ 		width:98%;
+ 		margin:0 auto;
+ 		max-width: 68em;
+
+ 	}
+ 	.main-navigation ul{
+
+ 		margin:0;
+ 		padding: 0;
+ 	}
+ 	.main-navigation li{
+ 		display: inline-block;
+ 		margin:0;
+ 		font-size: 1.2em;
+ 	}
+ 	.main-navigation li a{
+ 		display: block;
+ 		padding: .5em 1em;
+ 	}
+ 	.home .raffle-open ul{
+ 		padding-left: 100px;
+ 	}
+ 	.main-navigation .raffle{
+ 		background-image: url(img/paulkaiju-raffle.png);
+ 		width: 93px;
+ 		height: 66px;
+ 		position: absolute;
+ 		top:0;
+ 		right:0;
+ 		background-position: left bottom;
+ 		text-indent: -99999em;
+ 	}
+ 	.home .main-navigation .raffle{
+ 		top:0;
+ 		left:0px;
+ 	}
+ 	.main-navigation .raffle:hover{
+ 		height: 74px;
+ 	}
+ 	.main-navigation .raffle a{
+ 		display: block;
+ 		height: 100%;
+ 		background-color: transparent;
+ 	}
+
+ 	/*== main navigation on interior pages (logo) */
+ 	.main-navigation .site-name{
+ 		margin: 0;
+ 		font-size: 1em;
+ 		background-image: url(img/paulkaiju-logo-small.png);
+ 		background-repeat: no-repeat;
+ 		background-position: -2px -103px;
+ 		width:157px;
+
+ 	}
+ 	.main-navigation .site-name a {
+ 		width:100%;
+
+ 		display: block;
+ 		text-indent: -9999em;
+ 	}
+ 	/*layout*/
  	.home main article,
  	.widget-container .widget{
  		width:31.33%;
@@ -723,21 +871,22 @@ max-width: 28%;
  		max-width: 31.33%;
  		
  	}
- 	 .project h2.status{
- 	
- 	width: 25%;
- 	
- }
- .project .project-tag{
- 	
- 	width: 35%;
- 	
- }
+ 	.project h2.status{
+
+ 		width: 25%;
+
+ 	}
+ 	.project .project-tag{
+
+ 		width: 35%;
+
+ 	}
  	
 
 
 
  }
+ /*  large screens */
  @media only screen and (min-width : 920px) {
  	.home main article,
  	.widget-container .widget{
@@ -786,7 +935,14 @@ max-width: 28%;
  	.archive .thumb 	{
  		max-width: 33%;
  	}
-
+ 	/*forms*/
+ 	main form{
+ 		width: 100%;
+ 	}
+ 	input[type=button], button, input[type=submit]{
+ 		width: auto;
+ 		display: inline-block;
+ 	}
 
 
 

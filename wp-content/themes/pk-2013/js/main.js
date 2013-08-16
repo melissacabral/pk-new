@@ -15,7 +15,7 @@ jQuery( document ).ready( function( $ ) {
 	 	//});
 	 }
 	 placeholderSize(); 
-	 $(".home main article h1").dotdotdot();
+	 $(".home main article .entry-title").dotdotdot();
 	 $( window ).resize(function(){
 	 	//reset the height
 	 	$('.home main article').css("height", "auto");
@@ -24,6 +24,17 @@ jQuery( document ).ready( function( $ ) {
 	 	
 
 	 });
+	 //MENU TOGGLE
+	 $('body').addClass('js');
+ 	var $menu = $('#toggle-menu'),
+ 	$menulink = $('.nav-toggle');
+ 	
+
+ 	$menulink.click(function() {
+ 		$menulink.toggleClass('active');
+ 		$menu.toggleClass('active');
+  		return false;
+	});
 
 
 });

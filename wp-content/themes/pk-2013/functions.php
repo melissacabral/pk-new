@@ -153,6 +153,11 @@ add_filter( 'excerpt_length', 'pk_excerpt_length' );
 function pk_excerpt_length(){
 	return 30;
 }
+//replace useless [...] at the end of excerpts with a button
+function awesome_excerpt_more(){
+	return '<a href="'.get_permalink().'" class="readmore button">Read More</a>';	
+}
+add_filter('excerpt_more', 'awesome_excerpt_more');
 
 
 /**
