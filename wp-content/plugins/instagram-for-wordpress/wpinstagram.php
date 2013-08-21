@@ -94,7 +94,7 @@ function load_wpinstagram_footer(){
 					html += x + ' - ';
 				}
 
-				html += '<a href="http://ink361.com/">Instagram</a> web interface</div>';
+				html += '<a href="http://instagram.com/paulkaiju">Paulkaiju on Instagram</a></div>';
 				return html;
 			}
 		});

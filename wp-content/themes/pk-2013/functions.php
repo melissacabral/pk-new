@@ -266,3 +266,19 @@ function pk_postmeta(){
 	edit_post_link() ;
 }
 
+/**
+ * Replacing the default WordPress search form with an HTML5 version
+ *
+ */
+function html5_search_form( $form ) {
+	$image = get_template_directory_uri().'/img/icon_30_search.png';
+    $form = '<form role="search" method="get" class="searchform" action="' . home_url( '/' ) . '" >
+    <label class="assistive-text visually-hidden" for="s">' . __('Search for:') . '</label>
+    <input type="search" placeholder="'.__("Enter term...").'" value="' . get_search_query() . '" name="s" id="s" />
+    <input type="image" src="'.$image.'" id="searchsubmit" />
+    </form>';
+
+    return $form;
+}
+add_filter( 'get_search_form', 'html5_search_form' );
+

@@ -1,0 +1,5 @@
+* update feedburner URL
+* test subscription form
+* Create 301 redirects in htaccess
+* set up twitter widget
+* 

@@ -127,6 +127,10 @@ textarea {
  .clearfix {
  	*zoom: 1;
  }
+ /* apply a natural box layout model to all elements */
+ *, *:before, *:after {
+ 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+ }
  /* == %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  PK Custom Styles */
  html{
  	color:#dfdfdf;
@@ -193,9 +197,9 @@ textarea {
  	background-color: rgba(255,255,255,.2);
  }
  /* == navigation */
-.nav-toggle{
-	display: none;
-}
+ .nav-toggle{
+ 	display: none;
+ }
  .js .nav-toggle{
  	clear: both;
  	display: block;
@@ -450,12 +454,33 @@ textarea {
  .pagination a:hover{
  	background-color: rgba(255,255,255,.3);
  }
- /*									==Search results and archive */
+ /*									==Search form, results and archive */
+ .searchform{
+ 	position: relative;
+ 	max-width: 100%;
+ }
  .searchform  #s{
- 	width: 72%;
+ 	width: 96%;
+ 	padding: .5em 2%;
+ 	box-shadow: none;
+ 	-webkit-box-shadow:none;
+ 	border-radius: inherit;
+ 	background-repeat: no-repeat;
+ 	font-size:1em;
+ 	margin: 0;
  }
  .searchform #searchsubmit{
- 	width: 25%;
+ 	
+ 	margin: 0;
+ 	position: absolute;
+ 	top:.25em;
+ 	right:0;
+ 	border:none !important;
+ 	outline:none;
+ 	box-shadow: none;
+ 	background-color: transparent !important;
+ 	color:transparent;
+ 	
  }
  .search .thumb,
  .archive .thumb{
@@ -479,7 +504,12 @@ textarea {
  }
 
  /*									== forms */
- form input, textarea{
+ input[type=text],
+ input[type=search],
+ input[type=url],
+ input[type=password],
+ input[type=email],
+ textarea{
  	-webkit-border-radius: 6px;
  	border-radius: 6px;
  	border:solid 1px #26292a;
@@ -487,13 +517,13 @@ textarea {
  	box-shadow:  0px 0px 0px 5px rgba(255, 255, 255, .1);
  	outline: none;
  	margin:.5em 0 ;
- 	background: #e7f3fb; /* Old browsers */
- 	background: -moz-linear-gradient(top,  #bbc5cb 0%, #e7f3fb 18%); /* FF3.6+ */
- 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#bbc5cb), color-stop(18%,#e7f3fb)); /* Chrome,Safari4+ */
- 	background: -webkit-linear-gradient(top,  #bbc5cb 0%,#e7f3fb 18%); /* Chrome10+,Safari5.1+ */
- 	background: -o-linear-gradient(top,  #bbc5cb 0%,#e7f3fb 18%); /* Opera 11.10+ */
- 	background: -ms-linear-gradient(top,  #bbc5cb 0%,#e7f3fb 18%); /* IE10+ */
- 	background: linear-gradient(to bottom,  #bbc5cb 0%,#e7f3fb 18%); /* W3C */
+ 	background-color: #e7f3fb; /* Old browsers */
+ 	background-image: -moz-linear-gradient(top,  #bbc5cb 0%, #e7f3fb 18%); /* FF3.6+ */
+ 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#bbc5cb), color-stop(18%,#e7f3fb)); /* Chrome,Safari4+ */
+ 	background-image: -webkit-linear-gradient(top,  #bbc5cb 0%,#e7f3fb 18%); /* Chrome10+,Safari5.1+ */
+ 	background-image: -o-linear-gradient(top,  #bbc5cb 0%,#e7f3fb 18%); /* Opera 11.10+ */
+ 	background-image: -ms-linear-gradient(top,  #bbc5cb 0%,#e7f3fb 18%); /* IE10+ */
+ 	background-image: linear-gradient(to bottom,  #bbc5cb 0%,#e7f3fb 18%); /* W3C */
  	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bbc5cb', endColorstr='#e7f3fb',GradientType=0 ); /* IE6-9 */
 
  }
@@ -677,6 +707,14 @@ textarea {
  	text-transform: uppercase;
  	margin-bottom: .3em;
  }
+ .widget img{
+ 	padding:4px;
+ 	background-color: rgba(255,255,255,.1)
+ }
+ .widget .description img{
+ 	padding: 0;
+ 	background-color: transparent;
+ }
  .widget_fastflickrwidget img{
  	max-width: 28%;
  }
@@ -764,16 +802,12 @@ textarea {
  		max-height: none;/*the nav was hidden on smaller screens, this brings it back*/
  	}
  	.main-navigation{
-
-
  		position: absolute;
  		top:0;
  		left:0;
  		background-color:black;
  		background-color: rgba(0,0,0,.8);
  		width: 100%;
-
-
  	}
  	.admin-bar .main-navigation{
  		top:27px;
@@ -783,7 +817,6 @@ textarea {
  		width:98%;
  		margin:0 auto;
  		max-width: 68em;
-
  	}
  	.main-navigation ul{
 
@@ -798,6 +831,8 @@ textarea {
  	.main-navigation li a{
  		display: block;
  		padding: .5em 1em;
+ 		font-size: 1em;
+ 		background-color: transparent;
  	}
  	.home .raffle-open ul{
  		padding-left: 100px;
@@ -849,8 +884,16 @@ textarea {
  		float:left;
  		clear:none !important; 
  	}
+ 	.home header[role=banner]{
+ 		
+ 	}
  	.home header[role=banner] .site-name{	
  		width:32.7%;	
+ 		background-position: center 60px;
+ 	}
+ 	.home header[role=banner] .site-name a{
+ 		min-height: 220px;
+
  	}
  	.home main article .thumb-link{
  		text-align: left;
@@ -956,7 +999,7 @@ textarea {
  	.home header[role=banner] .site-name{	
  		width:23.5%;
  		background-image: url(img/paulkaiju-logo.png);
- 		background-position: center 45px;
+ 		background-position: center 65px;
  		
  		margin:0;
 
