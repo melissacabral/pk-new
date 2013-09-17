@@ -7,7 +7,7 @@
 		while( have_posts() ):
           the_post(); ?>
 
-      <article id="post-<?php the_ID() ?>" <?php post_class( 'clearfix' ); ?>>
+      <article id="post-<?php the_ID() ?>" <?php post_class( 'tile clearfix' ); ?>>
         <a class="thumb-link" href="<?php the_permalink(); ?>"> 
            <?php 
            if( has_post_thumbnail() ){

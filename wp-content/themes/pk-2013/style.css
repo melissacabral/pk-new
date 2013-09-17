@@ -142,7 +142,7 @@ textarea {
  	font-weight: normal;
  }
  a{
- 	color:white;
+ 	color:#C1D7DD;
  	text-decoration: none;
 
  }
@@ -264,7 +264,13 @@ textarea {
  .sticky{
  	background-color: rgba(255,255,255,.15)
  }
- .home main article{
+ .related-posts{
+ 	clear: both; 	
+ 	margin-top: 2em;
+ 	padding-top: 1em;
+ }
+ .tile,
+ .related-posts article{
  	margin:2% 2% 2% 0 ;
  }
  main article h1{
@@ -293,7 +299,7 @@ textarea {
  .home main .format-image:hover h1{
  	visibility: visible;
  }
- .home main article h1 {
+ .tile h1 {
  	font-size:1.5em;
  	line-height: 1.2em;
  	height:3.6em;
@@ -328,7 +334,7 @@ textarea {
  a:hover img{
  	opacity: .7;
  }
- .home main article .thumb-link{
+ .tile .thumb-link{
  	text-align: center;
  }
  .entry-content{
@@ -342,6 +348,18 @@ textarea {
  	;
  }
  /*==gallery*/
+ .gallery br{
+ 	display:none;
+ }
+ .gallery-item{
+ 	width:50%;
+ 	float:left;
+ }
+ .gallery img{
+ 	max-width:96%;
+ 	border: none;
+ 	
+ }
  .gallery-caption{
  	color:white;
  }
@@ -483,7 +501,7 @@ textarea {
  	
  }
  .search .thumb,
- .archive .thumb{
+ .post-type-archive-project .thumb{
  	margin:1em auto;
  	display: block;
  }
@@ -499,7 +517,7 @@ textarea {
  	
  }
  .search .thumb,
- .archive .thumb{
+ .post-type-archive-project .thumb{
  	margin-bottom: 1em;
  }
 
@@ -759,9 +777,15 @@ textarea {
 
  /* medium screens ----------- */
  @media only screen and (min-width : 460px) {
- 	.home main article,
+ 	.tile,
  	.widget-container .widget{
  		width:48%;
+ 		margin: 0 2% 2% 0;
+ 		float:left;
+ 	}
+
+ 	.related-posts article{
+ 		width:31.3%;
  		margin: 0 2% 2% 0;
  		float:left;
  	}
@@ -770,12 +794,12 @@ textarea {
  		height: 100%;
  	}
  	/* js fallback, clear every odd child*/
- 	.home main article:nth-child(odd){
+ 	.tile:nth-child(odd){
  		clear:both;
  	}
  	/*==search and archive*/
  	.search .thumb,
- 	.archive .thumb{
+ 	.post-type-archive-project .thumb{
  		float:right;
  		max-width: 48%;
  		margin:0;
@@ -790,6 +814,11 @@ textarea {
  	.project .project-tag{
  		width: 20%;
  	}
+ 	 /*==gallery*/
+ .gallery-item{
+ 	width:33.3%;
+ 	float:left;
+ }
 
 
  }
@@ -877,9 +906,15 @@ textarea {
  		text-indent: -9999em;
  	}
  	/*layout*/
- 	.home main article,
+ 	.tile,
  	.widget-container .widget{
  		width:31.33%;
+ 		margin: 0 2% 2% 0;
+ 		float:left;
+ 		clear:none !important; 
+ 	}
+ 	.related-posts article{
+ 		width:23%;
  		margin: 0 2% 2% 0;
  		float:left;
  		clear:none !important; 
@@ -895,21 +930,21 @@ textarea {
  		min-height: 220px;
 
  	}
- 	.home main article .thumb-link{
+ 	.tile .thumb-link{
  		text-align: left;
  	}
- 	.home main article .thumb-link h1{
+ 	.tile .thumb-link h1{
  		padding:0 .25em;
  	}
  	/*js fallback - clear every 4th article */
- 	.home main article:nth-child(4),
- 	.home main article:nth-child(7),
- 	.home main article:nth-child(10){
+ 	.tile:nth-child(4),
+ 	.tile:nth-child(7),
+ 	.tile:nth-child(10){
  		clear:both !important;
  	}
  	/*==search and archive*/
  	.search .thumb,
- 	.archive .thumb{
+ 	.post-type-archive-project .thumb{
  		
  		max-width: 31.33%;
  		
@@ -924,15 +959,20 @@ textarea {
  		width: 35%;
 
  	}
- 	
+ 	 /*==gallery*/
+ .gallery-item{
+ 	width:25%;
+ 	float:left;
+ }
 
 
 
  }
  /*  large screens */
  @media only screen and (min-width : 920px) {
- 	.home main article,
- 	.widget-container .widget{
+ 	.tile,
+ 	.widget-container .widget,
+ 	.related-posts article{
  		width:23%;
  		margin: 0 2% 1em 0;
  		float:left;
@@ -941,14 +981,14 @@ textarea {
  	.home header[role=banner] .site-name{	
  		width:24.6%;	
  	}
- 	.home main article:nth-child(even),
- 	.home main article:nth-child(odd){
+ 	.tile:nth-child(even),
+ 	.tile:nth-child(odd){
  		clear:none !important;
  	}
  	/*js fallback - clear every 5th article */
- 	.home main article:nth-child(5),
- 	.home main article:nth-child(9),
- 	.home main article:nth-child(13){
+ 	.tile:nth-child(5),
+ 	.tile:nth-child(9),
+ 	.tile:nth-child(13){
  		clear:both !important;
  	}
  	.single main,
@@ -975,7 +1015,7 @@ textarea {
  		float:none;
  	}
  	.search .thumb,
- 	.archive .thumb 	{
+ 	.post-type-archive-project .thumb 	{
  		max-width: 33%;
  	}
  	/*forms*/

@@ -7,9 +7,9 @@
 
 </footer><!-- end footer -->
 <small class="credits">
-    	<span>Copyright &copy; 2010-2013 Paulkaiju | <a href="/contact">Contact</a> </span>
+    	<span>Copyright &copy; 2010-2013 Paulkaiju | <a href="<?php home_url( '/contact-paul/' ); ?>">Contact</a> </span>
     	<span class="alignright">
-    	    	 <a href="http://melissacabral.com" title="Custom Wordpress Themes and Plugins by Melissa Cabral">Web Design &amp; Development</a>
+    	    	 <a href="http://melissacabral.com" title="Custom Wordpress Themes and Plugins by Melissa Cabral">Web Design &amp; Development by Mister Peekay Girlfriend</a>
     	</span>
     </small> 
 <?php 

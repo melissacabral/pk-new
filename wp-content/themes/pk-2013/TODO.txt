@@ -2,4 +2,4 @@
 * test subscription form
 * Create 301 redirects in htaccess
 * set up twitter widget
-* 
+* Implement Cforms - contact form and test raffle form

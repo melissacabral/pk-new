@@ -4,22 +4,22 @@ jQuery( document ).ready( function( $ ) {
 	  * make placeholder image height the same as the thumbnails - update as the window resizes
 	  */
 	 function placeholderSize(){
-	 	var imgheight = $('.home main article .thumb').height() ;
+	 	var imgheight = $('.tile .thumb').height() ;
 	 	$('.placeholder').css({
 	 		'height': imgheight + 'px'
 	 	});
 
-	 	//var articleheight =  $('.home main article').height() ;
-	 	//$('.home main article').css({
+	 	//var articleheight =  $('.tile').height() ;
+	 	//$('.tile').css({
 	 	//	'height': articleheight + 'px'
 	 	//});
 	 }
 	 placeholderSize(); 
-	 $(".home main article .entry-title").dotdotdot();
+	 $(".tile .entry-title").dotdotdot();
 	 $( window ).resize(function(){
 	 	//reset the height
-	 	$('.home main article').css("height", "auto");
-	 	 $(".home main .entry-title").dotdotdot(); 
+	 	$('.tile').css("height", "auto");
+	 	 $(".tile .entry-title").dotdotdot(); 
 	 	 placeholderSize();	
 	 	
 

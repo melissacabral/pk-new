@@ -1,0 +1,38 @@
+@import url(http://fonts.googleapis.com/css?family=Dosis);
+body{
+	color:#dfdfdf;
+ 	font-family: Dosis, Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+ 	line-height: 1.4em;
+	background-color: #302e38;
+	font-size:1.1875em; 
+	max-width: 70em;
+ 	width: 100%;
+	}
+ h1{
+ 	color: #ceca6d;
+ 	font-size: 2.2em;
+ 	position: relative;
+ 	line-height: 1.2em;
+ }
+ h1 a{
+ 	color:#ceca6d;
+ }
+ a:hover img{
+ 	opacity: .7;
+ }
+  h1, h2, h3, h4, h5{
+ 	font-weight: normal;
+ }
+ a{
+ 	color:#C1D7DD;
+ 	text-decoration: none;
+
+ }
+ a:hover{
+ 	background-color:rgba(255,255,255,.2);
+ }
+
+ img, *{
+ 	max-width: 100%;
+ 	height: auto;
+ }

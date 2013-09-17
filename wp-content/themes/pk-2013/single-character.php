@@ -20,29 +20,32 @@
                  <?php wp_link_pages(); ?>
 
             </div>
-             <?php pk_postmeta(); ?>
+            
 
              <?php 
-
+             //RELATED POSTS based on the name of the character
             $name = get_the_title();
             
              $args = array(
-                //'post_type' => 'post',
-                'showposts' => 4,
-                //'tag' => $name,
-                's' => $name
-                );
+                'showposts' => 8,
+                's' => $name,
+                'post_type' =>'post',
+                'post_status' => 'publish'
+                 );
              $char_query = new WP_Query($args);
 
              if($char_query->have_posts()): ?>
              <div class="related-posts">
-                <h2> Posts about <?php the_title() ?> </h2>
+                <h2>Blog Posts about <?php the_title() ?> </h2>
                 <?php while($char_query->have_posts()): $char_query->the_post(); ?>
-                <div class="<?php post_class( 'clearfix' ) ?>">
+                <article class="<?php post_class( 'clearfix' ) ?>">
                
-                <?php the_post_thumbnail( 'thumbnail' ) ?>
-                <h3> <?php the_title(); ?></h3>
-            </div>
+                <a href="<?php the_permalink(); ?>">
+                    <?php the_post_thumbnail( 'thumbnail' ) ?>
+                </a>
+              
+                <h3> <a href="<?php the_permalink(); ?>"><?php the_title(); ?>  </a></h3>
+                </article>
             <?php endwhile; ?>
              </div>
          <?php endif; 

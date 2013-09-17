@@ -147,6 +147,15 @@ function remove_thumbnail_dimensions( $html ) {
 }
 
 /**
+ * Remove Gallery inline CSS and <br> tags
+ */
+add_filter( 'use_default_gallery_style', '__return_false' );
+//add_filter( 'the_content', 'remove_br_gallery', 11, 2);
+function remove_br_gallery($output) {
+    return preg_replace('/<br style=(.*)>/mi','',$output);
+}
+
+/**
  * better excerpt
  */
 add_filter( 'excerpt_length', 'pk_excerpt_length' );
